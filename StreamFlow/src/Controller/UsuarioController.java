@@ -1,14 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Controller;
 
-/**
- *
- * @author PERSONAL
- */
+package Controller;
+import DAO.IUsuarioDAO;
+import Model.Usuario;
+import java.util.List;
+
 public class UsuarioController {
+    private final IUsuarioDAO usuarioDAO;
+
+    public UsuarioController(IUsuarioDAO usuarioDAO) {
+        this.usuarioDAO = usuarioDAO;
+        this.usuarioDAO.crearTabla(); // Se asegura que la tabla exista
+    }
+
+    public void registrarUsuario(String id, String nombre, String email) {
+        Usuario nuevoUsuario = new Usuario(id, nombre, email);
+        usuarioDAO.guardar(nuevoUsuario);
+    }
+
+    public List<Usuario> obtenerTodosLosUsuarios() {
+        return usuarioDAO.obtenerTodos();
+    }
     
 }
