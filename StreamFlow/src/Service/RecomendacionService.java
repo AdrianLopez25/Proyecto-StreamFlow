@@ -1,14 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Service;
+import Model.Contenido;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- *
- * @author PERSONAL
- */
 public class RecomendacionService {
-    
+    public List<Contenido> sugerirPorGenero(List<Contenido> catalogo, String generoFavorito) {
+        List<Contenido> recomendaciones = new ArrayList<>();
+        for (Contenido c : catalogo) {
+            if (c.getGenero().equalsIgnoreCase(generoFavorito)) {
+                recomendaciones.add(c);
+            }
+        }
+        return recomendaciones;
+    }
 }
+
