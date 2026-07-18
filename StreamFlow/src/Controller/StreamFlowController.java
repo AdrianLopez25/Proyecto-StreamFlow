@@ -34,3 +34,4 @@ public class StreamFlowController {
         return recomendacionService.sugerirPorGenero(obtenerCatalogoCompleto(), genero);
     }
 }
+
