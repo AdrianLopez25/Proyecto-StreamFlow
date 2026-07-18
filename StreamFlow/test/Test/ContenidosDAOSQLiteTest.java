@@ -10,7 +10,7 @@ import Model.Pelicula;
 import Model.Contenido;
 import java.util.List;
 
-public class ContenidoDAOSQLiteTest {
+public class ContenidosDAOSQLiteTest {
     private ContenidoDAOSQLite dao;
 
     @Before
