@@ -1,0 +1,6 @@
+
+package Model;
+
+public enum Genero {
+    ACCION, COMEDIA, DRAMA, CIENCIA_FICCION, TERROR, DOCUMENTAL, ANIMACION
+}
