@@ -9,7 +9,7 @@ public class UsuarioController {
 
     public UsuarioController(IUsuarioDAO usuarioDAO) {
         this.usuarioDAO = usuarioDAO;
-        this.usuarioDAO.crearTabla(); // Se asegura que la tabla exista
+        this.usuarioDAO.crearTabla(); 
     }
 
     public void registrarUsuario(String id, String nombre, String email) {

@@ -9,7 +9,7 @@ import java.awt.*;
 public class PanelAdministrador extends JPanel {
     
     public PanelAdministrador(StreamFlowController controlador, PanelCatalogo panelCatalogo) {
-        // Usamos GridLayout (11 filas, 1 columna) para que las cajitas no se estiren
+
         setLayout(new GridLayout(11, 1, 5, 5));
         setBorder(BorderFactory.createTitledBorder("Admin - Agregar Película"));
         setPreferredSize(new Dimension(250, 0));
@@ -26,7 +26,6 @@ public class PanelAdministrador extends JPanel {
         add(new JLabel("Calidad:")); add(cbCalidad);
         add(new JLabel("Duración (min):")); add(txtDuracion);
 
-        // Aquí está el botón que se había escondido
         JButton btnGuardar = new JButton("Guardar Película");
         
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {

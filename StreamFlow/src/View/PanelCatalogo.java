@@ -17,7 +17,7 @@ public class PanelCatalogo extends JPanel {
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createTitledBorder("Catálogo Disponible"));
 
-        String[] columnas = {"ID", "Título", "Género", "Calidad", "Costo Mensual ($)"};
+        String[] columnas = {"ID", "Título", "Género", "Calidad"};
         modeloTabla = new DefaultTableModel(columnas, 0);
         tablaContenidos = new JTable(modeloTabla);
         
@@ -26,7 +26,6 @@ public class PanelCatalogo extends JPanel {
 
         JButton btnActualizar = new JButton("Actualizar Catálogo");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
-            @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 cargarDatos();
             }
@@ -38,16 +37,17 @@ public class PanelCatalogo extends JPanel {
 
     public void cargarDatos() {
         modeloTabla.setRowCount(0); 
-        List<Contenido> catalogo = controlador.obtenerCatalogoCompleto();
         
-        for (Contenido c : catalogo) {
-            double costo = controlador.calcularCostoSuscripcion(c);
+        List<Contenido> catalogo = controlador.obtenerCatalogoFiltrado();
+        
+        for (int i = 0; i < catalogo.size(); i++) {
+            Contenido c = catalogo.get(i);
+            
             Object[] fila = {
                 c.getId(),
                 c.getTitulo(),
                 c.getGenero(),
-                c.getCalidad().name(),
-                String.format("%.2f", costo)
+                c.getCalidad().name()
             };
             modeloTabla.addRow(fila);
         }
